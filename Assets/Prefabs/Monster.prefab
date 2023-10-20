@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 5
   velocity: 1
+  maxStamina: 5
 --- !u!50 &5914077800706109002
 Rigidbody2D:
   serializedVersion: 4
@@ -130,7 +131,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.05
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
