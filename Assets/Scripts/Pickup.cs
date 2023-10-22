@@ -8,7 +8,9 @@ public class Pickup : MonoBehaviour
     private Inventory inventory;
     public GameObject itemButton;
 
-
+    [Header("SFX")] 
+    [SerializeField] private AudioClip pickupKey;
+    
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
@@ -25,6 +27,7 @@ public class Pickup : MonoBehaviour
                     //check if item can be add into inventory or not
                     inventory.isFull[i] = true;
                     Instantiate(itemButton, inventory.slots[i].transform, false);
+                    SFXController.instance.PlaySFX(pickupKey, transform, 0.5f);
                     Destroy(gameObject);
                     break;
                 }
