@@ -24,16 +24,16 @@ public class MonsterController : MonoBehaviour
         currentStamina = maxStamina;
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        // TODO make sure Monster does not spawn inside of an object/wall
+        // TODO make sure Monster spawns in right place
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Vector3.Distance(target.position, transform.position) <= detectionRange)
+        if (Vector2.Distance(target.position, transform.position) <= detectionRange)
         {
             // move towards player if within detection range
-            Vector3 move = (target.position - transform.position).normalized;
+            Vector2 move = (target.position - transform.position).normalized;
             rb.velocity = move * velocity;
             StartCoroutine("DrainStamina");
         }
