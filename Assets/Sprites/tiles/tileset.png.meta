@@ -777,8 +777,8 @@ TextureImporter:
       name: tileset_31
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 112
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -798,7 +798,7 @@ TextureImporter:
       name: tileset_32
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 0
         width: 16
         height: 16
@@ -819,7 +819,7 @@ TextureImporter:
       name: tileset_33
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 0
         width: 16
         height: 16
@@ -840,7 +840,7 @@ TextureImporter:
       name: tileset_34
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 0
         width: 16
         height: 16
@@ -861,7 +861,7 @@ TextureImporter:
       name: tileset_35
       rect:
         serializedVersion: 2
-        x: 80
+        x: 64
         y: 0
         width: 16
         height: 16
@@ -874,6 +874,48 @@ TextureImporter:
       bones: []
       spriteID: f188f234481282a4baedb70e98071ce3
       internalID: -311110903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_36
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f47a9eedadeb434bb93e3474611f3ef
+      internalID: -1120540205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_37
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb7fbc5c7ffed94b9b1481148972a1a
+      internalID: 1589011197
       vertices: []
       indices: 
       edges: []
@@ -919,6 +961,8 @@ TextureImporter:
       tileset_33: 9293020
       tileset_34: 2039770833
       tileset_35: -311110903
+      tileset_36: -1120540205
+      tileset_37: 1589011197
       tileset_4: 827311090
       tileset_5: -146142566
       tileset_6: 1191089316

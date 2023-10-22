@@ -17,14 +17,8 @@ public class PlayerController : MonoBehaviour
     private bool isWalking;
     private bool startSfx;
 
-    [Header("GameObjects")]
-    [SerializeField] private GameObject flashlight;
-
-    private bool flashlightEnabled;
-
     [Header("SFX")] 
     [SerializeField] private AudioClip footstep;
-    [SerializeField] private AudioClip flashOnOff;
 
     // Start is called before the first frame update
     void Start()
@@ -32,21 +26,13 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
-        flashlight = GameObject.Find("Flashlight");
         startSfx = true;
-        flashlightEnabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            flashlightEnabled = !flashlightEnabled;
-            flashlight.SetActive(flashlightEnabled);
-        }
         
         Animation();
         SFX();
@@ -69,11 +55,6 @@ public class PlayerController : MonoBehaviour
             isWalking = false;
             startSfx = true;
             StopCoroutine("FootstepSFX");
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            SFXController.instance.PlaySFX(flashOnOff, transform, 0.5f);
         }
     }
 
