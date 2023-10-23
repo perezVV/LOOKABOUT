@@ -13,6 +13,10 @@ public class Spawn : MonoBehaviour
     public Transform[] batteryspawnPoints;
     private bool batterySpawned = false;
 
+    public GameObject monsterPrefab;
+    public Transform[] monsterspawnPoints;
+    private bool monsterSpawned = false;
+
     public void SpawnKey()
     {
         if (!keySpawned && spawnPoints.Length > 0)
@@ -32,8 +36,18 @@ public class Spawn : MonoBehaviour
             Transform selectedSpawnPoint = batteryspawnPoints[randomIndex];
             Instantiate(batteryPrefab, selectedSpawnPoint.position, Quaternion.identity);
 
-            batterySpawned = true; // Set the flag to indicate that the key has been spawned.
+            batterySpawned = true; // Set the flag to indicate that the battery has been spawned.
         }
     }
+    public void SpawnMonster()
+    {
+        if (!monsterSpawned && monsterspawnPoints.Length > 0)
+        {
+            int randomIndex = Random.Range(0, monsterspawnPoints.Length);
+            Transform selectedSpawnPoint = monsterspawnPoints[randomIndex];
+            Instantiate(batteryPrefab, selectedSpawnPoint.position, Quaternion.identity);
 
+            monsterSpawned = true; // Set the flag to indicate that the battery has been spawned.
+        }
+    }
 }
