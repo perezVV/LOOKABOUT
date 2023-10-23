@@ -46,7 +46,7 @@ public class Pickup : MonoBehaviour
                     Instantiate(itemButton, inventory.slots[i].transform, false);
                     SFXController.instance.PlaySFX(pickupSound, transform, 0.5f);
                     // Get the key's name and display it as text on the inventory button.
-
+                    GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnController>().UnassignLocation(transform.position);
                     Destroy(gameObject);
                     break;
                 }

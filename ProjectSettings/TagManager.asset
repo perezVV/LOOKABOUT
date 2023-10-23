@@ -8,6 +8,7 @@ TagManager:
   - KeySpawnPoints
   - SpawnPoint
   - Rooms
+  - Spawner
   layers:
   - Default
   - TransparentFX

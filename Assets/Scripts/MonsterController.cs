@@ -13,24 +13,19 @@ public class MonsterController : MonoBehaviour
     [SerializeField] private int maxStamina;
 
     private Transform target;
-
     private bool drainingStamina;
-
     private bool isChasing;
-    
     private int currentStamina;
-    
     private Rigidbody2D rb;
-
     private Vector2 move;
-    
     private int adjustment;
-
     private bool touchingObstacle;
+    private SpawnController spawner;
 
     // Start is called before the first frame update
     void Start()
     {
+        spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnController>();
         currentStamina = maxStamina;
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -82,7 +77,9 @@ public class MonsterController : MonoBehaviour
     private void RespawnMonster()
     {
         // TODO change to spawn at proper spawn location
-        transform.position = new Vector3(0, 0, 0);
+        Vector2 pos = spawner.AssignRandomLocation();
+        transform.position = pos;
+        spawner.UnassignLocation(pos);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
