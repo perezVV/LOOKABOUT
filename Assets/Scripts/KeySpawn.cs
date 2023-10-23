@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class KeySpawn : MonoBehaviour
 {
-    public GameObject keyPrefab; // Assign the key prefab 
-    private bool isCollected = false; // Flag to track if the key has been collected.
+
+    public GameObject keyPrefab; // Assign your key prefab in the Inspector.
+    public Transform[] spawnPoints; // Assign your key spawn point prefabs in the Inspector.
+    private bool keySpawned = false;
 
     public void SpawnKey()
     {
-        if (!isCollected)
+        if (!keySpawned && spawnPoints.Length > 0)
         {
-            Instantiate(keyPrefab, transform.position, Quaternion.identity);
-            isCollected = true; // Mark the key as collected.
+            int randomIndex = Random.Range(0, spawnPoints.Length);
+            Transform selectedSpawnPoint = spawnPoints[randomIndex];
+            Instantiate(keyPrefab, selectedSpawnPoint.position, Quaternion.identity);
+
+            keySpawned = true; // Set the flag to indicate that the key has been spawned.
+            Debug.Log("Key spawned");
         }
     }
+
 }
