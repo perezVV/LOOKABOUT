@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f417da87ab03f42a1b119d52cd3e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 10
+  detectionRange: 3
   velocity: 2
   maxStamina: 7
 --- !u!50 &5914077800706109002

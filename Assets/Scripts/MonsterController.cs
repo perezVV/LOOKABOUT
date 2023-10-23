@@ -37,7 +37,10 @@ public class MonsterController : MonoBehaviour
         if (Vector2.Distance(target.position, transform.position) <= detectionRange)
         {
             isChasing = true;
-            // move towards player if within detection range
+        }
+        if (isChasing)
+        {
+            // move towards player
             move = (target.position - transform.position);
             if (touchingObstacle)
             {
@@ -49,7 +52,6 @@ public class MonsterController : MonoBehaviour
                 if (adjustment > 180) 
                 {
                     RespawnMonster();
-                    
                 }
                 move.x = (float)Math.Cos(angleInRadians);
                 move.y = (float)Math.Sin(angleInRadians);
@@ -63,7 +65,6 @@ public class MonsterController : MonoBehaviour
         }
         else
         {
-            isChasing = false;
             rb.velocity = Vector2.zero;
             currentStamina = maxStamina;
         }
@@ -76,8 +77,9 @@ public class MonsterController : MonoBehaviour
 
     private void RespawnMonster()
     {
-        // TODO change to spawn at proper spawn location
+        isChasing = false;
         Vector2 pos = spawner.AssignRandomLocation();
+        currentStamina = maxStamina;
         transform.position = pos;
         spawner.UnassignLocation(pos);
     }
@@ -88,6 +90,11 @@ public class MonsterController : MonoBehaviour
         {
             Debug.Log("Game Over :(");
             // TODO implement game over screen from here
+        }
+        else if (other.gameObject.CompareTag("Flashlight"))
+        {
+            isChasing = true;
+            Debug.Log(("flashlight hit monster"));
         }
         else
         {
@@ -109,8 +116,6 @@ public class MonsterController : MonoBehaviour
             currentStamina = Mathf.Clamp(currentStamina - 1, 0, maxStamina);
             if (currentStamina == 0)
             {
-                Debug.Log("Monster is tired :/");
-                currentStamina = maxStamina;
                 RespawnMonster(); // "respawn" the monster
             }
             drainingStamina = false;
