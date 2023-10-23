@@ -7,6 +7,7 @@ TagManager:
   - Flashlight
   - KeySpawnPoints
   - SpawnPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
