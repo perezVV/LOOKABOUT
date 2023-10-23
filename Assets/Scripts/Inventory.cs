@@ -8,16 +8,42 @@ public class Inventory : MonoBehaviour
     public GameObject[] slots;
     public string[] itemNames;
 
-    public void AddKey(Key key)
+    public bool AddItem(GameObject item)
+    {
+        for (int i = 0; i < slots.Length; i++)
         {
-            for (int i = 0; i < slots.Length; i++)
+            if (!isFull[i])
             {
-                if (!isFull[i])
-                {
-                    isFull[i] = true;
-                    itemNames[i] = key.keyName;
-                    return;
-                }
+                isFull[i] = true;
+                slots[i] = item;
+                return true;
             }
         }
+        return false; // Inventory is full.
+    }
+
+    public bool HasItem(GameObject item)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (isFull[i] && slots[i] == item)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void RemoveItem(GameObject item)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (isFull[i] && slots[i] == item)
+            {
+                isFull[i] = false;
+                slots[i] = null;
+                return;
+            }
+        }
+    }
 }
