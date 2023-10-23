@@ -7,6 +7,8 @@ public class Pickup : MonoBehaviour
     // Start is called before the first frame update
     private Inventory inventory;
     public GameObject itemButton;
+    
+
 
     private FlashlightPower flashlight;
 
@@ -43,6 +45,8 @@ public class Pickup : MonoBehaviour
                     inventory.isFull[i] = true;
                     Instantiate(itemButton, inventory.slots[i].transform, false);
                     SFXController.instance.PlaySFX(pickupSound, transform, 0.5f);
+                    // Get the key's name and display it as text on the inventory button.
+
                     Destroy(gameObject);
                     break;
                 }
