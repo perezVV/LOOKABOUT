@@ -11,37 +11,41 @@ public class RoomSpawner : MonoBehaviour {
     // 4 --> need right door
 
 
+    [SerializeField] private GameObject grid;
+
     private RoomTemplates templates;
     private int rand;
     public bool spawned = false;
 
     public float waitTime = 4f;
 
-    void Start(){
+    void Start()
+    {
+        grid = GameObject.Find("Grid");
         Destroy(gameObject, waitTime);
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         Invoke("Spawn", 0.1f);
     }
 
-
+//templates.bottomRooms[rand].transform.rotation,
     void Spawn(){
         if(spawned == false){
             if(openingDirection == 1){
-                // Need to spawn a room with a BOTTOM door.
-                rand = Random.Range(0, templates.bottomRooms.Length);
-                Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
-            } else if(openingDirection == 2){
-                // Need to spawn a room with a TOP door.
+                // Need to spawn a room with a TOP door that connects to a BOTTOM door.
                 rand = Random.Range(0, templates.topRooms.Length);
-                Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
+                Instantiate(templates.topRooms[rand], transform.position, Quaternion.identity, grid.transform);
+            } else if(openingDirection == 2){
+                // Need to spawn a room with a BOTTOM door that connects to a TOP door.
+                rand = Random.Range(0, templates.bottomRooms.Length);
+                Instantiate(templates.bottomRooms[rand], transform.position, Quaternion.identity, grid.transform);
             } else if(openingDirection == 3){
-                // Need to spawn a room with a LEFT door.
-                rand = Random.Range(0, templates.leftRooms.Length);
-                Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
-            } else if(openingDirection == 4){
-                // Need to spawn a room with a RIGHT door.
+                // Need to spawn a room with a RIGHT door that connects to a LEFT door.
                 rand = Random.Range(0, templates.rightRooms.Length);
-                Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
+                Instantiate(templates.rightRooms[rand], transform.position, Quaternion.identity, grid.transform);
+            } else if(openingDirection == 4){
+                // Need to spawn a room with a LEFT door that connects to a RIGHT door.
+                rand = Random.Range(0, templates.leftRooms.Length);
+                Instantiate(templates.leftRooms[rand], transform.position, Quaternion.identity, grid.transform);
             }
             spawned = true;
         }
