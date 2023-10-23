@@ -15,6 +15,8 @@ public class MonsterController : MonoBehaviour
     private Transform target;
 
     private bool drainingStamina;
+
+    private bool isChasing;
     
     private int currentStamina;
     
@@ -39,6 +41,7 @@ public class MonsterController : MonoBehaviour
     {
         if (Vector2.Distance(target.position, transform.position) <= detectionRange)
         {
+            isChasing = true;
             // move towards player if within detection range
             move = (target.position - transform.position);
             if (touchingObstacle)
@@ -65,9 +68,15 @@ public class MonsterController : MonoBehaviour
         }
         else
         {
+            isChasing = false;
             rb.velocity = Vector2.zero;
             currentStamina = maxStamina;
         }
+    }
+
+    public bool GetIsChasing()
+    {
+        return isChasing;
     }
 
     private void RespawnMonster()
