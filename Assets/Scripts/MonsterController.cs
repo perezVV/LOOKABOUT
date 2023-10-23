@@ -50,8 +50,8 @@ public class MonsterController : MonoBehaviour
                 double angleInRadians = Math.Atan2(move.y, move.x);
                 adjustment += 1; // adjust angle to move
                 angleInRadians += adjustment * Math.PI / 180;
-                // if all 360 degrees have been tried, respawn the monster 
-                if (adjustment > 360) 
+                // if > 180 degrees have been tried, might be stuck in a corner, so respawn the monster 
+                if (adjustment > 180) 
                 {
                     RespawnMonster();
                     
