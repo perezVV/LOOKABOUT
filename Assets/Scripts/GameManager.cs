@@ -11,5 +11,6 @@ public class GameManager : MonoBehaviour
     {
         spawn.SpawnKey(); // Call the SpawnKey method.
         spawn.SpawnBattery(); // Call the SpawnBattery method.
+        //spawn.SpawnMonster(); // Call the SpawnMonster method.
     }
 }
