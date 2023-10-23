@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public KeySpawn keySpawn;
+    public Spawn spawn;
+    public Spawn batterySpawn;
     // Start is called before the first frame update
     void Start()
     {
-        keySpawn.SpawnKey();
+        spawn.SpawnKey(); // Call the SpawnKey method.
+        spawn.SpawnBattery(); // Call the SpawnBattery method.
     }
 }
