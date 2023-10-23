@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Flashlight
   - KeySpawnPoints
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
