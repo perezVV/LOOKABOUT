@@ -9,6 +9,11 @@ TagManager:
   - SpawnPoint
   - Rooms
   - Spawner
+  - WinScreen
+  - LoseScreen
+  - Music
+  - MenuScreen
+  - HelpScreen
   layers:
   - Default
   - TransparentFX

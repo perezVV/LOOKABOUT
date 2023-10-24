@@ -10,6 +10,8 @@ public class SFXController : MonoBehaviour
     [SerializeField] private AudioSource sfxObject;
     [SerializeField] private float volume;
 
+    [SerializeField] private AudioSource musicObject;
+
     private List<AudioSource> sounds;
     
     void Start()
@@ -17,25 +19,30 @@ public class SFXController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            // sounds = new List<AudioSource>();
+            GameObject music = GameObject.FindWithTag("Music");
+            if (music != null)
+            {
+                musicObject = music.GetComponent<AudioSource>();
+            }
+            sounds = new List<AudioSource>();
         }
     }
 
-    // void Update()
-    // {
-    //     foreach (var sound in sounds)
-    //     {
-    //         if (sound == null)
-    //         {
-    //             sounds.Remove(sound);
-    //         }
-    //     }
-    // }
+    void Update()
+    {
+        foreach (var sound in sounds)
+        {
+            if (sound == null)
+            {
+                sounds.Remove(sound);
+            }
+        }
+    }
 
     public AudioSource PlaySFX(AudioClip audioClip, Transform pos, float vol)
     {
         AudioSource audioSource = Instantiate(sfxObject, pos.position, Quaternion.identity);
-        // sounds.Add(audioSource);
+        sounds.Add(audioSource);
         audioSource.clip = audioClip;
         audioSource.volume = vol;
         audioSource.Play();
@@ -44,12 +51,14 @@ public class SFXController : MonoBehaviour
         return audioSource;
     }
 
-    // public void StopAll()
-    // {
-    //     foreach (var sound in sounds)
-    //     {
-    //         sound.Stop();
-    //     }
-    // }
+    public void StopAll()
+    {
+        foreach (var sound in sounds)
+        {
+            sound.Stop();
+        }
+        musicObject.Stop();
+    }
+    
     
 }

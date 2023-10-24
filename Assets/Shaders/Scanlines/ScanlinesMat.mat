@@ -50,7 +50,7 @@ Material:
     - _LineThickness: 0.01
     - _LineWidth: 2
     - _LinesSize: 4
-    - _NumLines: 80
+    - _NumLines: 60
     - _ScanlineStrength: 0.4
     - _Speed: 0.03
     m_Colors:
