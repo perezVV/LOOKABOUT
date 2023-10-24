@@ -14,8 +14,26 @@ public class SpawnController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine("SpawnObjects");
+        
+        
+    }
+
+    private IEnumerator SpawnObjects()
+    {
+        yield return new WaitForSeconds(2); // wait until rooms are done spawning
+        GameObject[] points = GameObject.FindGameObjectsWithTag("Point");
+        spawnLocations = new Vector2[points.Length];
+        Debug.Log($"{points.Length}");
+        for (int index = 0; index < points.Length; index++)
+        {
+            spawnLocations[index] = points[index].transform.position;
+        }
         Spawn("key");
-        Spawn("battery");
+        for (int x = 0; x < points.Length / 2; x++)
+        {
+            Spawn("battery");
+        }
         Spawn("monster");
     }
 
