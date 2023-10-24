@@ -11,6 +11,8 @@ public class FlashlightPower : MonoBehaviour
     [SerializeField] private Light2D light;
     [SerializeField] private UnityEngine.UI.Image batteryUI;
     [SerializeField] private PolygonCollider2D collider;
+    [SerializeField] private GameObject screens;
+    private GameWindowSwitch switchTo;
     
     [Header("Customize")]
     [SerializeField] private float batteryLifeLength;
@@ -21,6 +23,7 @@ public class FlashlightPower : MonoBehaviour
     [Header("SFX")]
     [SerializeField] private AudioClip flashlightOnOff;
     [SerializeField] private AudioClip flashlightDead;
+    [SerializeField] private AudioClip monsterStep;
     
     // private vars
     private bool isCurrentlyOn;
@@ -36,6 +39,8 @@ public class FlashlightPower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        screens = GameObject.FindGameObjectWithTag("WindowSwitch");
+        switchTo = screens.GetComponent<GameWindowSwitch>();
         collider = GetComponent<PolygonCollider2D>();
         light = GetComponent<Light2D>();
         batteryUI = GameObject.Find("BatteryUI").GetComponent<UnityEngine.UI.Image>();
@@ -110,10 +115,13 @@ public class FlashlightPower : MonoBehaviour
         // isLightDying = true;
         hasBatteries = false;
         SFX();
+        StartCoroutine("DeadTimer");
     }
 
     void SetFlashlightAlive()
     {
+        Debug.Log("time for idle");
+        StopCoroutine("DeadTimer");
         isCurrentlyOn = true;
         light.enabled = true;
         collider.enabled = true;
@@ -164,10 +172,12 @@ public class FlashlightPower : MonoBehaviour
 
     public void PickupBattery()
     {
+        Debug.Log("gogo");
         batteryAmt += 1;
         batteryUI.sprite = batterySprites[batteryAmt];
         if (!hasBatteries)
         {
+            Debug.Log("go");
             SetFlashlightAlive();
         }
     }
@@ -182,5 +192,18 @@ public class FlashlightPower : MonoBehaviour
         {
             return false;
         }
+    }
+
+    IEnumerator DeadTimer()
+    {
+        yield return new WaitForSeconds(10f);
+        for (int i = 0; i < 3; i++)
+        {
+            SFXController.instance.PlaySFX(monsterStep, transform, 1f);
+            yield return new WaitForSeconds(1.5f);
+        }
+        SFXController.instance.StopAll();
+        SFXController.instance.StopMusic();
+        switchTo.Lose();
     }
 }

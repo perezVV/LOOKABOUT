@@ -18,6 +18,8 @@ public class SFXController : MonoBehaviour
     private bool isFadeOut = true;
     private bool isFadeIn = true;
     private bool isChase = false;
+
+    private bool flashlightOff = false;
     
     
     private List<AudioSource> sounds;
@@ -90,6 +92,7 @@ public class SFXController : MonoBehaviour
 
     public void SetIdleMusic()
     {
+        flashlightOff = true;
         StartCoroutine("FadeVolumeOut");
     }
 
@@ -141,6 +144,33 @@ public class SFXController : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
     }
+
+    public void StopMusic()
+    {
+        musicObject.Stop();
+    }
+    
+    // public void FlashlightOff()
+    // {
+    //     musicObject.clip = chase;
+    //     musicObject.volume = 0;
+    //     musicObject.Play();
+    //     StartCoroutine("FadeVolumeInFlashlightOff");
+    // }
+    //
+    // IEnumerator FadeVolumeInFlashlightOff()
+    // {
+    //     yield return new WaitForSeconds(2f);
+    //     while (flashlightOff)
+    //     {
+    //         if (musicObject.volume >= 1f)
+    //         {
+    //             flashlightOff = false;
+    //         }
+    //         musicObject.volume += 0.01f;
+    //         yield return new WaitForSeconds(0.1f);
+    //     }
+    // }
     
     
 }

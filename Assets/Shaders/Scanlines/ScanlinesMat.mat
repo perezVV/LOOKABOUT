@@ -47,7 +47,7 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _Hardness: 0.5
-    - _LineThickness: 0.01
+    - _LineThickness: 0.007
     - _LineWidth: 2
     - _LinesSize: 4
     - _NumLines: 60

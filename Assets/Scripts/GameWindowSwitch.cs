@@ -54,16 +54,6 @@ public class GameWindowSwitch : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Win();
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Lose();
-        }
-        
         if (startWinImg)
         {
             WinGameGraphic();

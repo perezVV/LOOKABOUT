@@ -1603,6 +1603,8 @@ MonoBehaviour:
   sfxObject: {fileID: 2771953246924247061, guid: ef779eca63a161541aa63405ecceea03, type: 3}
   volume: 0
   musicObject: {fileID: 0}
+  idle: {fileID: 0}
+  chase: {fileID: 0}
 --- !u!4 &1711234377
 Transform:
   m_ObjectHideFlags: 0
