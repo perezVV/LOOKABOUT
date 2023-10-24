@@ -11,6 +11,7 @@ public class Pickup : MonoBehaviour
 
 
     private FlashlightPower flashlight;
+    private SpawnController spawnController;
 
     [Header("SFX")] 
     [SerializeField] private AudioClip pickupSound;
@@ -19,6 +20,7 @@ public class Pickup : MonoBehaviour
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         flashlight = GameObject.FindGameObjectWithTag("Flashlight").GetComponent<FlashlightPower>();
+        spawnController = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnController>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -34,6 +36,7 @@ public class Pickup : MonoBehaviour
                 Debug.Log("battery pickup");
                 SFXController.instance.PlaySFX(pickupSound, transform, 0.1f);
                 flashlight.PickupBattery();
+                spawnController.UnassignLocation(transform.position);
                 Destroy(gameObject);
                 return;
             }
@@ -43,11 +46,11 @@ public class Pickup : MonoBehaviour
                 {
                     //check if item can be add into inventory or not
                     inventory.isFull[i] = true;
+                    // Get the key's name and display it as text on the inventory button.
                     Instantiate(itemButton, inventory.slots[i].transform, false);
                     inventory.slots[i].tag = "Key";
                     SFXController.instance.PlaySFX(pickupSound, transform, 0.5f);
-                    // Get the key's name and display it as text on the inventory button.
-                    // GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnController>().UnassignLocation(transform.position);
+                    spawnController.UnassignLocation(transform.position);
                     Destroy(gameObject);
                     break;
                 }
