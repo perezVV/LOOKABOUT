@@ -65,7 +65,11 @@ public class SFXController : MonoBehaviour
         audioSource.clip = audioClip;
         audioSource.volume = vol;
         audioSource.Play();
-        float clipLength = audioSource.clip.length;
+        if(audioSource.clip != null) 
+        {
+            float clipLength = audioSource.clip.length; 
+        }
+            
         Destroy(audioSource.gameObject, audioSource.clip.length);
         return audioSource;
     }
