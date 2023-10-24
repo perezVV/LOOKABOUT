@@ -85,14 +85,12 @@ public class FlashlightPower : MonoBehaviour
         {
             batteryAmt -= 1;
             batteryUI.sprite = batterySprites[batteryAmt];
-           // Debug.Log("RESTART! Battery AMT: " + batteryAmt);
             time = batteryLifeLength;
         }
 
         if (hasBatteries)
         {
             time -= Time.deltaTime;
-            Debug.Log(Mathf.Ceil(time));
         }
     }
 

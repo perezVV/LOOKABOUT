@@ -25,7 +25,7 @@ public class Pickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (gameObject.name == "Battery")
+            if (gameObject.CompareTag("Battery"))
             {
                 if (!flashlight.CanPickupBattery())
                 {
@@ -44,9 +44,10 @@ public class Pickup : MonoBehaviour
                     //check if item can be add into inventory or not
                     inventory.isFull[i] = true;
                     Instantiate(itemButton, inventory.slots[i].transform, false);
+                    inventory.slots[i].tag = "Key";
                     SFXController.instance.PlaySFX(pickupSound, transform, 0.5f);
                     // Get the key's name and display it as text on the inventory button.
-                    GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnController>().UnassignLocation(transform.position);
+                    // GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnController>().UnassignLocation(transform.position);
                     Destroy(gameObject);
                     break;
                 }

@@ -15,6 +15,10 @@ TagManager:
   - MenuScreen
   - HelpScreen
   - WindowSwitch
+  - Door
+  - Battery
+  - Key
+  - Empty
   layers:
   - Default
   - TransparentFX
