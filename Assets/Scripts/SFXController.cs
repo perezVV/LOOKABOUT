@@ -36,16 +36,24 @@ public class SFXController : MonoBehaviour
         }
     }
 
+    List<AudioSource> soundsToRemove = new List<AudioSource>();
+
     void Update()
     {
+
         foreach (var sound in sounds)
         {
             if (sound == null)
             {
-                sounds.Remove(sound);
+                soundsToRemove.Add(sound);
             }
         }
-        
+
+        // Remove the null sounds after the loop.
+        foreach (var soundToRemove in soundsToRemove)
+        {
+            sounds.Remove(soundToRemove);
+        }
     }
 
     public AudioSource PlaySFX(AudioClip audioClip, Transform pos, float vol)
