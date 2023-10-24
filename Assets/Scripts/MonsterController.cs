@@ -28,8 +28,6 @@ public class MonsterController : MonoBehaviour
     private int currentStamina;
     private Rigidbody2D rb;
     private Vector2 move;
-    private int adjustment;
-    private bool touchingObstacle;
     private SpawnController spawner;
 
     private bool isSleeping;
@@ -132,24 +130,7 @@ public class MonsterController : MonoBehaviour
         {
             // move towards player
             move = (target.position - transform.position);
-            if (touchingObstacle)
-            {
-                // if monster is colliding with wall/object, try to rotate
-                double angleInRadians = Math.Atan2(move.y, move.x);
-                adjustment += 1; // adjust angle to move
-                angleInRadians += adjustment * Math.PI / 180;
-                // if > 180 degrees have been tried, might be stuck in a corner, so respawn the monster 
-                if (adjustment > 180) 
-                {
-                    RespawnMonster();
-                }
-                move.x = (float)Math.Cos(angleInRadians);
-                move.y = (float)Math.Sin(angleInRadians);
-            }
-            else
-            {
-                adjustment = 0;
-            }
+            
             rb.velocity = move.normalized * velocity;
             StartCoroutine("DrainStamina");
         }
@@ -190,15 +171,6 @@ public class MonsterController : MonoBehaviour
             StartChasingSFX();
             Debug.Log(("flashlight hit monster"));
         }
-        else
-        {
-            touchingObstacle = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        touchingObstacle = false;
     }
 
     private IEnumerator DrainStamina()
