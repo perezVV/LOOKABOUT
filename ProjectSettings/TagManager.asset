@@ -14,6 +14,7 @@ TagManager:
   - Music
   - MenuScreen
   - HelpScreen
+  - WindowSwitch
   layers:
   - Default
   - TransparentFX

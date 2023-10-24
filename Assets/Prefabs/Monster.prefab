@@ -1,71 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2265988853405285119
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9148632920924230730}
-  - component: {fileID: 331719522765628363}
-  m_Layer: 0
-  m_Name: ShadowCaster2D
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &9148632920924230730
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2265988853405285119}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4972223987715009471}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &331719522765628363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2265988853405285119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_ComponentVersion: 1
-  m_HasRenderer: 0
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000
-  m_ShapePath:
-  - {x: 6.6681657, y: -0.9095149, z: 0}
-  - {x: 6.7716327, y: -0.81466585, z: 0}
-  - {x: 6.926748, y: -0.26718545, z: 0}
-  - {x: 6.834072, y: -0.13788211, z: 0}
-  - {x: 6.327506, y: -0.08618814, z: 0}
-  - {x: 6.1034117, y: -0.2133607, z: 0}
-  - {x: 6.1551223, y: -0.6939924, z: 0}
-  - {x: 6.282307, y: -0.90089726, z: 0}
-  m_ShapePathHash: 879200152
-  m_Mesh: {fileID: 0}
-  m_InstanceId: 42494
-  m_LocalBounds:
-    m_Center: {x: 6.5150795, y: -0.49785152, z: 0}
-    m_Extent: {x: 0.41166806, y: 0.41166338, z: 0}
 --- !u!1 &3746499262103781613
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,8 +13,8 @@ GameObject:
   - component: {fileID: 5914077800706109002}
   - component: {fileID: -1832322961247324737}
   - component: {fileID: -4067257139016527179}
-  - component: {fileID: 2016759352028168338}
-  - component: {fileID: -7021687195779568224}
+  - component: {fileID: 3843619097237623590}
+  - component: {fileID: 462032572882839682}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -98,10 +32,9 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9148632920924230730}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &622981188197783581
@@ -119,6 +52,10 @@ MonoBehaviour:
   detectionRange: 3
   velocity: 2
   maxStamina: 7
+  monsterInhale: {fileID: 8300000, guid: 0b269002b96e7084f8e50f45a69d49b1, type: 3}
+  monsterExhale: {fileID: 8300000, guid: d0c26beb39deb224aa1c08c4b8691ab7, type: 3}
+  monsterStep: {fileID: 8300000, guid: ff0bde1ecdd9af544a15d0d4913454ba, type: 3}
+  monsterCry: {fileID: 8300000, guid: 6ff1b9e0d09ecdf4e8405e6e420fc6cf, type: 3}
 --- !u!50 &5914077800706109002
 Rigidbody2D:
   serializedVersion: 4
@@ -187,7 +124,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -1651143297, guid: 9b50f144d33da6c43aec33486176de54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -218,22 +155,18 @@ MonoBehaviour:
   m_SelfShadows: 1
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: -0.06101469, y: -0.06345129, z: 0}
-  - {x: -0.08702315, y: -0.00044862926, z: 0}
-  - {x: -0.061014693, y: 0.0610147, z: 0}
-  - {x: 0.0019121021, y: 0.08726831, z: 0}
-  - {x: 0.06588785, y: 0.057359815, z: 0}
-  - {x: 0.08841076, y: -0.0028852194, z: 0}
-  - {x: 0.06466956, y: -0.056141544, z: 0}
-  - {x: -0.00052447914, y: -0.08572899, z: 0}
-  m_ShapePathHash: -2060464474
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  m_ShapePathHash: 160822549
   m_Mesh: {fileID: 0}
-  m_InstanceId: 42490
+  m_InstanceId: 123464
   m_LocalBounds:
-    m_Center: {x: 0.0006938055, y: 0.0007696599, z: 0}
-    m_Extent: {x: 0.08771695, y: 0.08649865, z: 0}
---- !u!70 &2016759352028168338
-CapsuleCollider2D:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 0.5, z: 0}
+--- !u!61 &3843619097237623590
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -265,10 +198,20 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.2, y: 0.2}
-  m_Direction: 1
---- !u!70 &-7021687195779568224
-CapsuleCollider2D:
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!58 &462032572882839682
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -300,5 +243,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.2, y: 0.2}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 0.5

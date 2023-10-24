@@ -12,6 +12,14 @@ public class SFXController : MonoBehaviour
 
     [SerializeField] private AudioSource musicObject;
 
+    [Header("Music")]
+    [SerializeField] private AudioClip idle;
+    [SerializeField] private AudioClip chase;
+    private bool isFadeOut = true;
+    private bool isFadeIn = true;
+    private bool isChase = false;
+    
+    
     private List<AudioSource> sounds;
     
     void Start()
@@ -37,6 +45,7 @@ public class SFXController : MonoBehaviour
                 sounds.Remove(sound);
             }
         }
+        
     }
 
     public AudioSource PlaySFX(AudioClip audioClip, Transform pos, float vol)
@@ -58,6 +67,71 @@ public class SFXController : MonoBehaviour
             sound.Stop();
         }
         musicObject.Stop();
+    }
+
+    public void SetChaseMusic()
+    {
+        isFadeOut = true;
+        isFadeIn = true;
+        isChase = true;
+        musicObject.Stop();
+        musicObject.clip = chase;
+        musicObject.volume = 1f;
+        musicObject.Play();
+    }
+
+    public void SetIdleMusic()
+    {
+        StartCoroutine("FadeVolumeOut");
+    }
+
+    void SetIdleMusic2()
+    {
+        StopCoroutine("FadeVolumeOut");
+        musicObject.Stop();
+        musicObject.clip = idle;
+        musicObject.Play();
+        musicObject.volume = 0f;
+        StartCoroutine("FadeVolumeIn");
+        isChase = false;
+    }
+
+    public bool IsChaseMusic()
+    {
+        return isChase;
+    }
+
+    IEnumerator FadeVolumeOut()
+    {
+        while (isFadeOut)
+        {
+            if (musicObject.volume <= 0)
+            {
+                isFadeOut = false;
+                SetIdleMusic2();
+            }
+            musicObject.volume -= 0.01f;
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    IEnumerator FadeVolumeIn()
+    {
+        while (isFadeIn)
+        {
+            if (musicObject.volume <= 0)
+            {
+                musicObject.volume += 0.1f;
+                yield return new WaitForSeconds(5f);
+            }
+            if (musicObject.volume >= 0.1f)
+            {
+                isFadeIn = false;
+            }
+
+            musicObject.volume += 0.01f;
+            yield return new WaitForSeconds(0.05f);
+        }
     }
     
     

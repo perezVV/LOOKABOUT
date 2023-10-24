@@ -10,6 +10,7 @@ public class FlashlightPower : MonoBehaviour
     [Header("Script Necessities")]
     [SerializeField] private Light2D light;
     [SerializeField] private UnityEngine.UI.Image batteryUI;
+    [SerializeField] private PolygonCollider2D collider;
     
     [Header("Customize")]
     [SerializeField] private float batteryLifeLength;
@@ -35,6 +36,7 @@ public class FlashlightPower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        collider = GetComponent<PolygonCollider2D>();
         light = GetComponent<Light2D>();
         batteryUI = GameObject.Find("BatteryUI").GetComponent<UnityEngine.UI.Image>();
         batteryAmt = 5;
@@ -98,6 +100,7 @@ public class FlashlightPower : MonoBehaviour
     {
         isCurrentlyOn = !isCurrentlyOn;
         light.enabled = isCurrentlyOn;
+        collider.enabled = isCurrentlyOn;
         SFX();
     }
 
@@ -105,6 +108,7 @@ public class FlashlightPower : MonoBehaviour
     {
         isCurrentlyOn = false;
         light.enabled = false;
+        collider.enabled = false;
         // isLightDying = true;
         hasBatteries = false;
         SFX();
@@ -114,6 +118,7 @@ public class FlashlightPower : MonoBehaviour
     {
         isCurrentlyOn = true;
         light.enabled = true;
+        collider.enabled = true;
         // isLightBackOn = true;
         hasBatteries = true;
         time = batteryLifeLength;

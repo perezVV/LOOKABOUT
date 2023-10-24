@@ -54,6 +54,16 @@ public class GameWindowSwitch : MonoBehaviour
     
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Win();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Lose();
+        }
+        
         if (startWinImg)
         {
             WinGameGraphic();
@@ -119,7 +129,7 @@ public class GameWindowSwitch : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene("Scenes/MainScene");
+        SceneManager.LoadScene("Scenes/map");
     }
 
     public void HelpButton()
