@@ -21,10 +21,9 @@ public class SpawnController : MonoBehaviour
 
     private IEnumerator SpawnObjects()
     {
-        yield return new WaitForSeconds(2); // wait until rooms are done spawning
+        yield return new WaitForSeconds(3); // wait until rooms are done spawning
         GameObject[] points = GameObject.FindGameObjectsWithTag("Point");
         spawnLocations = new Vector2[points.Length];
-        Debug.Log($"{points.Length}");
         for (int index = 0; index < points.Length; index++)
         {
             spawnLocations[index] = points[index].transform.position;

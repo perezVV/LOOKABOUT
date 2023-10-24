@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5862573451689877687}
   m_Layer: 0
   m_Name: TB
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 1659412647487219853}
   - {fileID: 6917065161801471869}
+  - {fileID: 3551739272517989265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713214162998953285
@@ -834,6 +835,37 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!1 &5891647737248385638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3551739272517989265}
+  m_Layer: 0
+  m_Name: Point
+  m_TagString: Point
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3551739272517989265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891647737248385638}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5862573451689877687}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6381959862210317567
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +932,7 @@ MonoBehaviour:
   - {x: -4.999971, y: -5, z: 0}
   m_ShapePathHash: 296176734
   m_Mesh: {fileID: 0}
-  m_InstanceId: -263486
+  m_InstanceId: 47762
   m_LocalBounds:
     m_Center: {x: -1.5, y: 0, z: 0}
     m_Extent: {x: 3.5, y: 5, z: 0}
@@ -1964,7 +1996,7 @@ MonoBehaviour:
   - {x: 1.0000293, y: -5, z: 0}
   m_ShapePathHash: -912866174
   m_Mesh: {fileID: 0}
-  m_InstanceId: -263480
+  m_InstanceId: 47728
   m_LocalBounds:
     m_Center: {x: 1.4999855, y: 0, z: 0}
     m_Extent: {x: 3.4999855, y: 5, z: 0}
