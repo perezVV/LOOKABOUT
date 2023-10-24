@@ -43,19 +43,13 @@ public class SFXController : MonoBehaviour
     void Update()
     {
 
-        foreach (var sound in sounds)
-        {
-            if (sound == null)
-            {
-                soundsToRemove.Add(sound);
-            }
-        }
+        sounds.RemoveAll(s => s == null); 
 
-        // Remove the null sounds after the loop.
-        foreach (var soundToRemove in soundsToRemove)
-        {
-            sounds.Remove(soundToRemove);
-        }
+        // // Remove the null sounds after the loop.
+        // foreach (var soundToRemove in soundsToRemove)
+        // {
+        //     sounds.Remove(soundToRemove);
+        // }
     }
 
     public AudioSource PlaySFX(AudioClip audioClip, Transform pos, float vol)
@@ -65,12 +59,11 @@ public class SFXController : MonoBehaviour
         audioSource.clip = audioClip;
         audioSource.volume = vol;
         audioSource.Play();
-        if(audioSource.clip != null) 
+        if(audioSource.gameObject != null) 
         {
             float clipLength = audioSource.clip.length; 
+            Destroy(audioSource.gameObject, audioSource.clip.length);
         }
-            
-        Destroy(audioSource.gameObject, audioSource.clip.length);
         return audioSource;
     }
 
