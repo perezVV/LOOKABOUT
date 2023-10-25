@@ -8,6 +8,7 @@ public class SFXController : MonoBehaviour
     public static SFXController instance;
 
     [SerializeField] private AudioSource sfxObject;
+    [SerializeField] private AudioSource monsterSfxObject;
     [SerializeField] private float volume;
 
     [SerializeField] private AudioSource musicObject;
@@ -54,7 +55,15 @@ public class SFXController : MonoBehaviour
 
     public AudioSource PlaySFX(AudioClip audioClip, Transform pos, float vol)
     {
-        AudioSource audioSource = Instantiate(sfxObject, pos.position, Quaternion.identity);
+        AudioSource audioSource;
+        if (audioClip.name == "monster_inhale_alt" || audioClip.name == "monster_exhale_alt")
+        {
+            audioSource = Instantiate(monsterSfxObject, pos.position, Quaternion.identity);
+        }
+        else
+        {
+            audioSource = Instantiate(sfxObject, pos.position, Quaternion.identity);
+        }
         sounds.Add(audioSource);
         audioSource.clip = audioClip;
         audioSource.volume = vol;

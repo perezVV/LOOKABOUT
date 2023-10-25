@@ -90,9 +90,9 @@ public class MonsterController : MonoBehaviour
     {
         while (isSleeping)
         {
-            SFXController.instance.PlaySFX(monsterInhale, transform, 0.1f);
+            SFXController.instance.PlaySFX(monsterInhale, transform, 1f);
             yield return new WaitForSeconds(monsterInhale.length + 1.5f);
-            SFXController.instance.PlaySFX(monsterExhale, transform, 0.1f);
+            SFXController.instance.PlaySFX(monsterExhale, transform, 1f);
             yield return new WaitForSeconds(monsterExhale.length + 1.5f);
         }
     }
