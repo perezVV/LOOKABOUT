@@ -78,6 +78,11 @@ public class SFXController : MonoBehaviour
 
     public void SetChaseMusic()
     {
+        if (flashlightOff)
+        {
+            Debug.Log("music sequence already playing :( cant go to chase");
+            return;
+        }
         isFadeOut = true;
         isFadeIn = true;
         isChase = true;
@@ -89,7 +94,11 @@ public class SFXController : MonoBehaviour
 
     public void SetIdleMusic()
     {
-        flashlightOff = true;
+        if (flashlightOff)
+        {
+            Debug.Log("music sequence already playing :( cant go to idle");
+            return;
+        }
         StartCoroutine("FadeVolumeOut");
     }
 
@@ -104,6 +113,11 @@ public class SFXController : MonoBehaviour
         isChase = false;
     }
 
+    public void SetChaseBool()
+    {
+        isChase = true;
+    }
+    
     public bool IsChaseMusic()
     {
         return isChase;
@@ -146,28 +160,54 @@ public class SFXController : MonoBehaviour
     {
         musicObject.Stop();
     }
+
+    public void FlashlightOn()
+    {
+        if (isChase)
+        {
+            Debug.Log("music sequence already happening :(");
+            return;
+        }
+        Debug.Log("flashlight off thing stopped");
+        flashlightOff = false;
+        StopCoroutine("FadeVolumeInFlashlightOff");
+        musicObject.clip = idle;
+        musicObject.Stop();
+    }
+
+    IEnumerator FadeVolumeInFlashlightOn()
+    {
+        Debug.Log("waiting to start idle music...");
+        yield return new WaitForSeconds(5.0f);
+        Debug.Log("starting idle music again");
+        musicObject.Play();
+        musicObject.volume = 0.1f;
+    }
     
-    // public void FlashlightOff()
-    // {
-    //     musicObject.clip = chase;
-    //     musicObject.volume = 0;
-    //     musicObject.Play();
-    //     StartCoroutine("FadeVolumeInFlashlightOff");
-    // }
-    //
-    // IEnumerator FadeVolumeInFlashlightOff()
-    // {
-    //     yield return new WaitForSeconds(2f);
-    //     while (flashlightOff)
-    //     {
-    //         if (musicObject.volume >= 1f)
-    //         {
-    //             flashlightOff = false;
-    //         }
-    //         musicObject.volume += 0.01f;
-    //         yield return new WaitForSeconds(0.1f);
-    //     }
-    // }
+    public void FlashlightOff()
+    {
+        musicObject.clip = chase;
+        musicObject.volume = 0;
+        musicObject.Play();
+        flashlightOff = true;
+        StartCoroutine("FadeVolumeInFlashlightOff");
+    }
+    
+    IEnumerator FadeVolumeInFlashlightOff()
+    {
+        Debug.Log("flashlight off thing begun");
+        yield return new WaitForSeconds(2f);
+        while (flashlightOff)
+        {
+            Debug.Log("fading in music...");
+            if (musicObject.volume >= 1f)
+            {
+                flashlightOff = false;
+            }
+            musicObject.volume += 0.01f;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
     
     
 }

@@ -695,7 +695,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -981,7 +981,7 @@ MonoBehaviour:
   - {x: -1.9999708, y: -2, z: 0}
   m_ShapePathHash: 1293672493
   m_Mesh: {fileID: 0}
-  m_InstanceId: 47182
+  m_InstanceId: 42610
   m_LocalBounds:
     m_Center: {x: 0, y: 1.5, z: 0}
     m_Extent: {x: 5, y: 3.5, z: 0}
@@ -2066,7 +2066,7 @@ MonoBehaviour:
   - {x: -4.999971, y: -5, z: 0}
   m_ShapePathHash: 598268948
   m_Mesh: {fileID: 0}
-  m_InstanceId: 47214
+  m_InstanceId: 42642
   m_LocalBounds:
     m_Center: {x: -0.000014305115, y: -1.5, z: 0}
     m_Extent: {x: 4.9999857, y: 3.5, z: 0}

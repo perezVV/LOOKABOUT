@@ -112,6 +112,7 @@ public class MonsterController : MonoBehaviour
         {
             StopCoroutine("MonsterSleepSFX");
             SFXController.instance.PlaySFX(monsterCry, transform, 0.5f);
+            SFXController.instance.SetChaseBool();
             SFXController.instance.SetChaseMusic();
             playCryOnce = false;
         }

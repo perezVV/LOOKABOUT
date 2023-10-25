@@ -19,6 +19,9 @@ TagManager:
   - Battery
   - Key
   - Empty
+  - Room
+  - Point
+  - WALLS
   layers:
   - Default
   - TransparentFX

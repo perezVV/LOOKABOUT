@@ -177,7 +177,8 @@ public class FlashlightPower : MonoBehaviour
         batteryUI.sprite = batterySprites[batteryAmt];
         if (!hasBatteries)
         {
-            Debug.Log("go");
+            // Debug.Log("go");
+            SFXController.instance.FlashlightOn();
             SetFlashlightAlive();
         }
     }
@@ -196,6 +197,7 @@ public class FlashlightPower : MonoBehaviour
 
     IEnumerator DeadTimer()
     {
+        SFXController.instance.FlashlightOff();
         yield return new WaitForSeconds(10f);
         for (int i = 0; i < 3; i++)
         {
