@@ -282,8 +282,8 @@ Tilemap:
   - first: {x: -2, y: 0, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -312,8 +312,8 @@ Tilemap:
   - first: {x: 1, y: 1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -567,12 +567,12 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: b7788cc91f530724cab5af3f606a3990, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 22aa1bed1b5510c4697b1d05256c97a8, type: 2}
-  - m_RefCount: 1
+  - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: df633a5553c0c24478ec90bfc5071d76, type: 2}
   - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: 07e9f0fcfd0d66547b80127e506d41d7, type: 2}
-  - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: a2f1fa0cfa5fe8b40b3598d06b913203, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 1397792943, guid: 254c8162834be3a4e894ae65c84dc2c1, type: 3}
@@ -590,12 +590,12 @@ Tilemap:
     m_Data: {fileID: 1158856269, guid: 254c8162834be3a4e894ae65c84dc2c1, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -1055513850, guid: 254c8162834be3a4e894ae65c84dc2c1, type: 3}
-  - m_RefCount: 1
+  - m_RefCount: 3
     m_Data: {fileID: -895966939, guid: 254c8162834be3a4e894ae65c84dc2c1, type: 3}
   - m_RefCount: 8
     m_Data: {fileID: -195642963, guid: 254c8162834be3a4e894ae65c84dc2c1, type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: -752426182, guid: 02dcf4a2e34aa8145be301214388f085, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 50
     m_Data:
@@ -688,7 +688,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!19719996 &8078539800374647846
@@ -794,13 +794,13 @@ CompositeCollider2D:
   - m_Collider: {fileID: 8078539800374647846}
     m_ColliderPaths:
     - - X: 50000000
-        Y: -10000000
+        Y: -14375000
       - X: 40000000
-        Y: -10000000
+        Y: -14375000
       - X: 40000000
-        Y: -40000000
+        Y: -44375000
       - X: -40000000
-        Y: -40000000
+        Y: -44375000
       - X: -40000000
         Y: 30000000
       - X: 40000000
@@ -810,6 +810,14 @@ CompositeCollider2D:
       - X: 50000000
         Y: 10000000
       - X: 50000000
+        Y: 50000000
+      - X: 40000000
+        Y: 50000000
+      - X: 40000000
+        Y: 45625000
+      - X: -40000000
+        Y: 45625000
+      - X: -40000000
         Y: 50000000
       - X: -50000000
         Y: 50000000
@@ -818,17 +826,17 @@ CompositeCollider2D:
       - X: 50000000
         Y: -50000000
     - - X: 20000000
-        Y: 20000000
+        Y: 15625000
       - X: 10000000
-        Y: 20000000
+        Y: 15625000
       - X: 10000000
         Y: -20000000
       - X: 20000000
         Y: -20000000
     - - X: -10000000
-        Y: 10000000
+        Y: 5625000
       - X: -20000000
-        Y: 10000000
+        Y: 5625000
       - X: -20000000
         Y: -30000000
       - X: -10000000
@@ -836,24 +844,28 @@ CompositeCollider2D:
   m_CompositePaths:
     m_Paths:
     - - {x: 4.999971, y: -5}
-      - {x: 4.999971, y: -1}
-      - {x: 4, y: -1.0000293}
-      - {x: 3.9999704, y: -4}
-      - {x: -4, y: -3.9999704}
+      - {x: 4.999971, y: -1.4375}
+      - {x: 4, y: -1.4375293}
+      - {x: 3.9999704, y: -4.4375}
+      - {x: -4, y: -4.4374704}
       - {x: -3.9999704, y: 3}
       - {x: 4, y: 2.9999707}
       - {x: 4.000029, y: 1}
       - {x: 5, y: 1.0000293}
       - {x: 4.999971, y: 5}
+      - {x: 4, y: 4.999971}
+      - {x: 3.9999704, y: 4.5625}
+      - {x: -4, y: 4.5625296}
+      - {x: -4.000029, y: 5}
       - {x: -5, y: 4.999971}
       - {x: -4.999971, y: -5}
     - - {x: 1.9999708, y: -2}
-      - {x: 1.9999708, y: 2}
-      - {x: 1, y: 1.9999708}
+      - {x: 1.9999708, y: 1.5625}
+      - {x: 1, y: 1.5624707}
       - {x: 1.0000293, y: -2}
     - - {x: -1.0000293, y: -3}
-      - {x: -1.0000293, y: 1}
-      - {x: -2, y: 0.99997073}
+      - {x: -1.0000293, y: 0.5625}
+      - {x: -2, y: 0.56247073}
       - {x: -1.9999708, y: -3}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
@@ -959,7 +971,7 @@ MonoBehaviour:
   - {x: -4.999971, y: -5, z: 0}
   m_ShapePathHash: 992747879
   m_Mesh: {fileID: 0}
-  m_InstanceId: -51950
+  m_InstanceId: 44114
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 5, y: 5, z: 0}
@@ -1175,7 +1187,7 @@ MonoBehaviour:
   - {x: -1.9999708, y: -3, z: 0}
   m_ShapePathHash: 1848508357
   m_Mesh: {fileID: 0}
-  m_InstanceId: -51966
+  m_InstanceId: 44148
   m_LocalBounds:
     m_Center: {x: -1.5000147, y: -1, z: 0}
     m_Extent: {x: 0.49998534, y: 2, z: 0}
@@ -1885,7 +1897,7 @@ MonoBehaviour:
   - {x: 1.0000293, y: -2, z: 0}
   m_ShapePathHash: -1122206423
   m_Mesh: {fileID: 0}
-  m_InstanceId: -51958
+  m_InstanceId: 44142
   m_LocalBounds:
     m_Center: {x: 1.4999855, y: 0, z: 0}
     m_Extent: {x: 0.4999854, y: 2, z: 0}
